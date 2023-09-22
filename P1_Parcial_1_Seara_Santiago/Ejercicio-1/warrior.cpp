@@ -28,20 +28,9 @@ float Warrior::recieveDamage(float damage, float defense)
 	currentHealth = currentHealth - (damage + defense);
 	return currentHealth;
 }
-void Warrior::attack(Warrior warrior, AttackType attackType, bool isCrit)
+void Warrior::attack(Warrior warrior, AttackType attackType)
 {
-	switch (attackType)
-	{
-	case AttackType::Quick:
-		recieveDamage(weapon.getDamage(Quick, armor.getCritRateReduction(), false), armor.getDmgReduction(weapon.getDamage(Quick, armor.getCritRateReduction(), false)));
-		break;
-	case AttackType::Neutral:
-		recieveDamage(weapon.getDamage(Neutral, armor.getCritRateReduction(), false), armor.getDmgReduction(weapon.getDamage(Neutral, armor.getCritRateReduction(), false)));
-		break;
-	case AttackType::Charged:
-		recieveDamage(weapon.getDamage(Charged, armor.getCritRateReduction(), false), armor.getDmgReduction(weapon.getDamage(Charged, armor.getCritRateReduction(), false)));
-		break;
-	}
+	warrior.recieveDamage(weapon.getDamage(attackType, armor.getCritRateReduction(), false), armor.getDmgReduction(weapon.getDamage(attackType, armor.getCritRateReduction(), false)));
 }
 float Warrior::getCurrentHealth()
 {
