@@ -26,6 +26,7 @@ void game::runProgram()
 	system("cls");
 	do
 	{
+		roundCount++;
 		this->turn(player1Turn);
 		if (player2.isAlive())
 		{
@@ -62,6 +63,7 @@ void game::turn(bool turn)
 			isCrit = false;
 		}
 
+		cout << "Ronda: " << roundCount << endl;
 		cout << "Vida Jugador 1: " << player1.getCurrentHealth() << "HP" << endl;
 		cout << "Vida Jugador 2: " << player2.getCurrentHealth() << "HP" << endl;
 		cout << "Que ataque queres utilizar jugador 1? 1.Quick attack - 2.Neutral attack - 3.Charged attack" << endl;
@@ -131,6 +133,7 @@ void game::turn(bool turn)
 			isCrit = false;
 		}
 
+		cout << "Ronda: " << roundCount << endl;
 		cout << "Vida Jugador 1: " << player1.getCurrentHealth() << "HP" << endl;
 		cout << "Vida Jugador 2: " << player2.getCurrentHealth() << "HP" << endl;
 		cout << "Que ataque queres utilizar jugador 2? 1.Quick attack - 2.Neutral attack - 3.Charged attack" << endl;
