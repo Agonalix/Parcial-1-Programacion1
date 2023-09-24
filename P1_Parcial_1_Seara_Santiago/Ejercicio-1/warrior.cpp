@@ -3,12 +3,14 @@
 Warrior::Warrior()
 {
 	name = " ";
-	maxHealth = 150.0f;
+	maxHealth = 300.0f;
+
 }
 Warrior::Warrior(string name, float maxHealth)
 {
 	this->name = name;
 	this->maxHealth = maxHealth;
+	this->currentHealth = maxHealth;
 }
 
 void Warrior::setWeapon(Weapon weapon)
@@ -28,9 +30,9 @@ float Warrior::recieveDamage(float damage, float defense)
 	currentHealth = currentHealth - (damage + defense);
 	return currentHealth;
 }
-void Warrior::attack(Warrior warrior, AttackType attackType)
+void Warrior::attack(Warrior& warrior, AttackType attackType, bool isCrit)
 {
-	warrior.recieveDamage(weapon.getDamage(attackType, armor.getCritRateReduction(), false), armor.getDmgReduction(weapon.getDamage(attackType, armor.getCritRateReduction(), false)));
+	warrior.recieveDamage(weapon.getDamage(attackType, armor.getCritRateReduction(), isCrit), armor.getDmgReduction(weapon.getDamage(attackType, armor.getCritRateReduction(), isCrit)));
 }
 float Warrior::getCurrentHealth()
 {
@@ -38,7 +40,7 @@ float Warrior::getCurrentHealth()
 }
 bool Warrior::isAlive()
 {
-	if (currentHealth <= 0)
+	if (currentHealth > 0)
 	{
 		return true;
 	}

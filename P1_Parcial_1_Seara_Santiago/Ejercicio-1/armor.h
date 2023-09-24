@@ -3,7 +3,7 @@
 
 enum ArmorType
 {
-	Light,
+	Light = 1,
 	Normal,
 	Heavy
 };

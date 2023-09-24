@@ -2,12 +2,12 @@
 #include "utilities.h"
 
 enum WeaponType {
-	Axe,
+	Axe = 1,
 	Sword,
 	Spear
 };
 enum AttackType {
-	Quick,
+	Quick = 1,
 	Neutral,
 	Charged
 };

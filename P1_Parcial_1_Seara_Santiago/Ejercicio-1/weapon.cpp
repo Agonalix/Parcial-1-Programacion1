@@ -20,17 +20,12 @@ Weapon::Weapon(string name, float attack, float critRate, float critDamage)
 float Weapon::getDamage(AttackType attackType, float critRateReduction, bool isCrit)
 {
 	float damage = attack;
-
-	if (critRate == 1)
-	{
-		isCrit = true;
-	}
 	switch (attackType)
 	{
 	case AttackType::Quick:
 		if (isCrit)
 		{
-			critDamage = 25;
+			critDamage = 40;
 			damage += critDamage - critRateReduction;
 			return damage;
 		}
@@ -55,7 +50,7 @@ float Weapon::getDamage(AttackType attackType, float critRateReduction, bool isC
 	case AttackType::Charged:
 		if (isCrit)
 		{
-			critDamage = 35;
+			critDamage = 25;
 			damage += critDamage - critRateReduction;
 			return damage;
 		}

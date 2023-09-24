@@ -21,7 +21,7 @@ public:
 	void setArmor(Armor armor);
 	string getName();
 	float recieveDamage(float damage, float defense);
-	void attack(Warrior warrior, AttackType attacktype);
+	void attack(Warrior& warrior, AttackType attacktype, bool isCrit);
 	float getCurrentHealth();
 	bool isAlive();
 
